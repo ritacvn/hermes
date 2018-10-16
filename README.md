@@ -1,4 +1,4 @@
-# The Peek Pods Specifications Repo for iOS
+# The Peek iOS Coding Challenge
 
 
 <img src="https://cdn.worldvectorlogo.com/logos/graphql.svg" width="200" height="200" /><img src="https://openclipart.org/download/50143/clipart-0114.svg" width="50" height="50" /><img src="https://d2z5w7rcu7bmie.cloudfront.net/assets/images/logo.png" width="200" height="200" />
