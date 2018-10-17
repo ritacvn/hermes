@@ -31,7 +31,7 @@ Each table cell should contain:
 - The owner avatar
 - The number of stars
 
-##Setup
+## Setup
 This project uses [CocoaPods](https://cocoapods.org/) and leverages the [Apollo iOS client](https://github.com/apollographql/apollo-ios) to fetch data from a GraphQL API. In order to pull data from Github API, please generate an access [token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
 
 The `githubToken` varaible will need to be updated the `GraphQLClientProtocol.swift` file.
