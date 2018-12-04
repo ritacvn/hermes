@@ -20,7 +20,7 @@ The application will interface with the [Github V4 API](https://developer.github
 
 ## Requirements
 
-Initial launch: Fetch initial set of result than query the string `GraphQL`
+Initial launch: fetch the initial set of repos that contain the string `graphql`
 
 Infinite scrolling: Fetch the next set of repository.
 
