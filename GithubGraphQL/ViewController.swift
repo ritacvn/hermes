@@ -7,6 +7,7 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     //Initial query
+    //Feel free to update the number of item requested according to your implementation
     let gqlQuery = SearchRepositoriesQuery.init(first: 5, query: "graphql", type: SearchType.repository)
 
     //Paginated search Query
