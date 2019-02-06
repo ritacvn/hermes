@@ -10,6 +10,7 @@
 Build a small iPhone application that queries Github to get repositories that mention `GraphQL`.
 The result are to be displayed in a list view with pagination support.
 The project should **not** take more than half a day of coding time - remember it’s a demo and not a fully featured app!
+Please list in your README file the things you would have added/done differently if you had more time.
 
 ## Services
 The application will interface with the [Github V4 API](https://developer.github.com/v4)
