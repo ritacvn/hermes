@@ -22,15 +22,15 @@ The application will interface with the [Github V4 API](https://developer.github
 ## Requirements
 
 Initial launch: fetch the initial set of repos that contain the string `graphql`
-
 Infinite scrolling: Fetch the next set of repository.
-
+Error handling
 Each table cell should contain:
-
 - The name of the repo
 - The owner login name
 - The owner avatar
 - The number of stars
+
+We are using MVVM at Peek to build iOS apps and we would like you to use it to build this demo app.
 
 ## Setup
 This project uses [CocoaPods](https://cocoapods.org/) and leverages the [Apollo iOS client](https://github.com/apollographql/apollo-ios) to fetch data from a GraphQL API. In order to pull data from Github API, please generate an access [token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).
@@ -42,13 +42,14 @@ You are allowed to used third party libraries when appropriate.
 Use your good judgement and please justify the use (when necessary) of any third party library.
 
 ## Specifications
-Language: Swift 4.2
+Language: Swift 4.2 or later
 Development environment: Xcode 10 or later
 Target: iOS 12 or later
 
 ## Submission
 When finished, create a public Github repository with your solution.
-Don’t hesitate to include any documentation or ramblings to help us better understand your submission and the coding choices you made.
+We want your code to represent the best of your abilities.
+Please also include any documentation or ramblings to help us better understand your submission and the coding choices you made.
  
  
 Finally, there are plenty of details that are purposefully vague here, because we want to give you leeway to be creative and show us your way of doing things. 
