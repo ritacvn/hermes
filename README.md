@@ -42,7 +42,7 @@ You are allowed to used third party libraries when appropriate.
 Use your good judgement and please justify the use (when necessary) of any third party library.
 
 ## Specifications
-Language: Swift 4.2 or later
+Language: Swift 5 or later
 Development environment: Xcode 10 or later
 Target: iOS 12 or later
 
