@@ -3,7 +3,7 @@
 import Apollo
 
 /// Represents the individual results of a search.
-public enum SearchType: RawRepresentable, Equatable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+public enum SearchType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   /// Returns results matching issues in repositories.
   case issue
@@ -41,11 +41,42 @@ public enum SearchType: RawRepresentable, Equatable, Apollo.JSONDecodable, Apoll
       default: return false
     }
   }
+
+  public static var allCases: [SearchType] {
+    return [
+      .issue,
+      .repository,
+      .user,
+    ]
+  }
 }
 
 public final class SearchRepositoriesQuery: GraphQLQuery {
+  /// query SearchRepositories($first: Int!, $after: String, $last: Int, $before: String, $query: String!, $type: SearchType!) {
+  ///   search(first: $first, after: $after, last: $last, before: $before, query: $query, type: $type) {
+  ///     __typename
+  ///     pageInfo {
+  ///       __typename
+  ///       startCursor
+  ///       endCursor
+  ///       hasNextPage
+  ///       hasPreviousPage
+  ///     }
+  ///     edges {
+  ///       __typename
+  ///       node {
+  ///         __typename
+  ///         ... on Repository {
+  ///           ...RepositoryDetails
+  ///         }
+  ///       }
+  ///     }
+  ///   }
+  /// }
   public let operationDefinition =
-    "query SearchRepositories($first: Int!, $after: String, $last: Int, $before: String, $query: String!, $type: SearchType!) {\n  search(first: $first, after: $after, last: $last, before: $before, query: $query, type: $type) {\n    __typename\n    pageInfo {\n      __typename\n      startCursor\n      endCursor\n      hasNextPage\n      hasPreviousPage\n    }\n    edges {\n      __typename\n      node {\n        __typename\n        ... on Repository {\n          ...RepositoryDetails\n        }\n      }\n    }\n  }\n}"
+    "query SearchRepositories($first: Int!, $after: String, $last: Int, $before: String, $query: String!, $type: SearchType!) { search(first: $first, after: $after, last: $last, before: $before, query: $query, type: $type) { __typename pageInfo { __typename startCursor endCursor hasNextPage hasPreviousPage } edges { __typename node { __typename ... on Repository { ...RepositoryDetails } } } } }"
+
+  public let operationName = "SearchRepositories"
 
   public var queryDocument: String { return operationDefinition.appending(RepositoryDetails.fragmentDefinition) }
 
@@ -366,8 +397,22 @@ public final class SearchRepositoriesQuery: GraphQLQuery {
 }
 
 public struct RepositoryDetails: GraphQLFragment {
+  /// fragment RepositoryDetails on Repository {
+  ///   __typename
+  ///   name
+  ///   owner {
+  ///     __typename
+  ///     login
+  ///     avatarUrl
+  ///   }
+  ///   stargazers {
+  ///     __typename
+  ///     totalCount
+  ///   }
+  ///   url
+  /// }
   public static let fragmentDefinition =
-    "fragment RepositoryDetails on Repository {\n  __typename\n  name\n  owner {\n    __typename\n    login\n    avatarUrl\n  }\n  stargazers {\n    __typename\n    totalCount\n  }\n  url\n}"
+    "fragment RepositoryDetails on Repository { __typename name owner { __typename login avatarUrl } stargazers { __typename totalCount } url }"
 
   public static let possibleTypes = ["Repository"]
 

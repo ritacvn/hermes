@@ -6,7 +6,7 @@ public typealias GraphQLCompletionHandler<Operation: GraphQLOperation> = (Result
 
 /// The base URL for connecting to the Github GraphQL endpoint
 let githubGQL = "https://api.github.com/graphql"
-let githubToken = "ADD YOUR TOKEN HERE"
+let githubToken = "9e0299631e833fbc6e7c79789f9d2355f6d288e2"
 
 /// HTTP method definitions.
 /// See https://tools.ietf.org/html/rfc7231#section-4.3
@@ -58,10 +58,9 @@ protocol GraphQLClient {
 }
 
 extension GraphQLClient {
-  
-  static func handle<Operation: GraphQLOperation>(result: GraphQLResult<Operation.Data>?,
-                                                  error: Error?,
-                                                  completionHandler: GraphQLCompletionHandler<Operation>?) {
+  static func handle<Operation>(result: GraphQLResult<Operation.Data>?,
+                                error: Error?,
+                                completionHandler: ((Result<Operation>) -> Void)?) where Operation : GraphQLOperation {
     
     guard let completionHandler = completionHandler else {
       return

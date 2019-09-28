@@ -19,7 +19,6 @@
 		D9A10FC0216C4AFE007998EC /* GithubGraphQLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FBF216C4AFE007998EC /* GithubGraphQLUITests.swift */; };
 		D9A10FE8216C77CD007998EC /* GraphQLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FE2216C77CD007998EC /* GraphQLManager.swift */; };
 		D9A10FE9216C77CD007998EC /* GraphQLClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FE3216C77CD007998EC /* GraphQLClientProtocol.swift */; };
-		D9A10FEA216C77CD007998EC /* GraphQLAuthHTTPNetworkTransport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FE4216C77CD007998EC /* GraphQLAuthHTTPNetworkTransport.swift */; };
 		D9A10FEB216C77CD007998EC /* RepositoriesViewController.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D9A10FE5216C77CD007998EC /* RepositoriesViewController.graphql */; };
 		D9A10FED216C77CD007998EC /* RepositoryDetails.graphql in Resources */ = {isa = PBXBuildFile; fileRef = D9A10FE7216C77CD007998EC /* RepositoryDetails.graphql */; };
 		D9A10FF0216C7805007998EC /* RepositoriesGraphQLClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FEF216C7805007998EC /* RepositoriesGraphQLClient.swift */; };
@@ -70,7 +69,6 @@
 		D9A10FC1216C4AFE007998EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A10FE2216C77CD007998EC /* GraphQLManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLManager.swift; sourceTree = "<group>"; };
 		D9A10FE3216C77CD007998EC /* GraphQLClientProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLClientProtocol.swift; sourceTree = "<group>"; };
-		D9A10FE4216C77CD007998EC /* GraphQLAuthHTTPNetworkTransport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAuthHTTPNetworkTransport.swift; sourceTree = "<group>"; };
 		D9A10FE5216C77CD007998EC /* RepositoriesViewController.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RepositoriesViewController.graphql; sourceTree = "<group>"; };
 		D9A10FE7216C77CD007998EC /* RepositoryDetails.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RepositoryDetails.graphql; sourceTree = "<group>"; };
 		D9A10FEF216C7805007998EC /* RepositoriesGraphQLClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesGraphQLClient.swift; sourceTree = "<group>"; };
@@ -207,7 +205,6 @@
 			isa = PBXGroup;
 			children = (
 				D9C8E127216DBA11002A64FC /* API.swift */,
-				D9A10FE4216C77CD007998EC /* GraphQLAuthHTTPNetworkTransport.swift */,
 				D9A10FE3216C77CD007998EC /* GraphQLClientProtocol.swift */,
 				D9A10FE2216C77CD007998EC /* GraphQLManager.swift */,
 				D9A10FF1216D7501007998EC /* GraphQLResult.swift */,
@@ -396,7 +393,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "APOLLO_FRAMEWORK_PATH=\"$(eval find $FRAMEWORK_SEARCH_PATHS -name \"Apollo.framework\" -maxdepth 1)\"\n\nif [ -z \"$APOLLO_FRAMEWORK_PATH\" ]; then\necho \"error: Couldn't find Apollo.framework in FRAMEWORK_SEARCH_PATHS; make sure to add the framework to your project.\"\nexit 1\nfi\n\ncd \"${SRCROOT}/GithubGraphQL/Managers/Networking/GraphQL/\"\n$APOLLO_FRAMEWORK_PATH/check-and-run-apollo-cli.sh codegen:generate --queries=\"$(find . -name '*.graphql')\" --schema=schema.json API.swift\n";
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}/Managers/Networking/GraphQL/\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
 		};
 		E7163090CB770CA324F728A7 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -462,7 +459,6 @@
 				D9A10FA2216C4AFD007998EC /* ViewController.swift in Sources */,
 				D9A10FE8216C77CD007998EC /* GraphQLManager.swift in Sources */,
 				D9A10FF4216D93B8007998EC /* RepositoriesGraphQLRequest.swift in Sources */,
-				D9A10FEA216C77CD007998EC /* GraphQLAuthHTTPNetworkTransport.swift in Sources */,
 				D9C8E128216DBA11002A64FC /* API.swift in Sources */,
 				D9A10FF2216D7501007998EC /* GraphQLResult.swift in Sources */,
 				D9A10FF0216C7805007998EC /* RepositoriesGraphQLClient.swift in Sources */,

@@ -8,11 +8,10 @@ import Apollo
  */
 
 enum GQLClient {
-  
   static func runQuery<Query: GraphQLQuery>(request: GraphQLRequest,
                                             query: Query,
-                                            operationResultHandler: OperationResultHandler<Query>? = nil) {
-    GraphQLManager.shared().fetch(query: query,
+                                            operationResultHandler: GraphQLResultHandler<Query.Data>? = nil) {
+    GraphQLManager.client().fetch(query: query,
                                   cachePolicy: request.cachePolicy,
                                   queue: request.queue,
                                   resultHandler: operationResultHandler)
@@ -21,18 +20,35 @@ enum GQLClient {
 
 
 class GraphQLManager {
-  
-  // MARK: - Properties
-  private static var client: ApolloClient = {
-    let configuration = URLSessionConfiguration.default
-    let url = URL(string: githubGQL)!
 
-    return ApolloClient(networkTransport: GraphQLAuthHTTPNetworkTransport(url: url, token: githubToken))
-  }()
-  
-  
-  // MARK: - Accessors
-  class func shared() -> ApolloClient {
-    return client
+  // MARK: - Properties
+  private static let shared = GraphQLManager()
+
+  // Configure the network transport to use the singleton as the delegate.
+  private lazy var networkTransport = HTTPNetworkTransport(url: URL(string: githubGQL)!, delegate: self)
+
+  // Use the configured network transport in your client.
+  private(set) lazy var apolloClient = ApolloClient(networkTransport: self.networkTransport)
+
+  class func client() -> ApolloClient {
+    return GraphQLManager.shared.apolloClient
+  }
+}
+
+
+extension GraphQLManager: HTTPNetworkTransportPreflightDelegate {
+  func networkTransport(_ networkTransport: HTTPNetworkTransport, shouldSend request: URLRequest) -> Bool {
+    return true
+  }
+
+  func networkTransport(_ networkTransport: HTTPNetworkTransport, willSend request: inout URLRequest) {
+
+    // Get the existing headers, or create new ones if they're nil
+    var headers = request.allHTTPHeaderFields ?? [String: String]()
+
+    headers[HttpHeaders.authorization] = "Bearer \(githubToken)"
+
+    // Re-assign the updated headers to the request.
+    request.allHTTPHeaderFields = headers
   }
 }
