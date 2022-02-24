@@ -12,6 +12,7 @@
 		D8F7604B27C724F900B1AB58 /* API+Abstractions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7604A27C724F900B1AB58 /* API+Abstractions.swift */; };
 		D8F7604D27C7295500B1AB58 /* GraphQLClient+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7604C27C7295500B1AB58 /* GraphQLClient+Search.swift */; };
 		D8F7605127C72B1700B1AB58 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7605027C72B1700B1AB58 /* ApolloClient.swift */; };
+		D8F7605327C72F1400B1AB58 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7605227C72F1400B1AB58 /* ViewModel.swift */; };
 		D9A10FA0216C4AFD007998EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10F9F216C4AFD007998EC /* AppDelegate.swift */; };
 		D9A10FA2216C4AFD007998EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FA1216C4AFD007998EC /* ViewController.swift */; };
 		D9A10FA5216C4AFD007998EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9A10FA3216C4AFD007998EC /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		D8F7604A27C724F900B1AB58 /* API+Abstractions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Abstractions.swift"; sourceTree = "<group>"; };
 		D8F7604C27C7295500B1AB58 /* GraphQLClient+Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphQLClient+Search.swift"; sourceTree = "<group>"; };
 		D8F7605027C72B1700B1AB58 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
+		D8F7605227C72F1400B1AB58 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		D9A10F9C216C4AFD007998EC /* GithubGraphQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubGraphQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A10F9F216C4AFD007998EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9A10FA1216C4AFD007998EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				D9A10FA8216C4AFD007998EC /* LaunchScreen.storyboard */,
 				D9A10FA3216C4AFD007998EC /* Main.storyboard */,
 				D9A10FA1216C4AFD007998EC /* ViewController.swift */,
+				D8F7605227C72F1400B1AB58 /* ViewModel.swift */,
 			);
 			path = GithubGraphQL;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				D8F7605127C72B1700B1AB58 /* ApolloClient.swift in Sources */,
 				D9C8E128216DBA11002A64FC /* API.swift in Sources */,
 				D8F7604B27C724F900B1AB58 /* API+Abstractions.swift in Sources */,
+				D8F7605327C72F1400B1AB58 /* ViewModel.swift in Sources */,
 				D9A10FA0216C4AFD007998EC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
