@@ -119,12 +119,12 @@
 		D9A10F9E216C4AFD007998EC /* GithubGraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				D9A10FCE216C4E71007998EC /* Networking */,
 				D9A10F9F216C4AFD007998EC /* AppDelegate.swift */,
 				D9A10FA6216C4AFD007998EC /* Assets.xcassets */,
 				D9A10FAB216C4AFD007998EC /* Info.plist */,
 				D9A10FA8216C4AFD007998EC /* LaunchScreen.storyboard */,
 				D9A10FA3216C4AFD007998EC /* Main.storyboard */,
-				D9A10FCD216C4E71007998EC /* Managers */,
 				D9A10FA1216C4AFD007998EC /* ViewController.swift */,
 			);
 			path = GithubGraphQL;
@@ -146,14 +146,6 @@
 				D9A10FC1216C4AFE007998EC /* Info.plist */,
 			);
 			path = GithubGraphQLUITests;
-			sourceTree = "<group>";
-		};
-		D9A10FCD216C4E71007998EC /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				D9A10FCE216C4E71007998EC /* Networking */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		D9A10FCE216C4E71007998EC /* Networking */ = {
@@ -342,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "RESOLVED_PACKAGE_DIR=\"${BUILD_DIR}/../../SourcePackages/checkouts\"\n\nSCRIPT_PATH=\"${RESOLVED_PACKAGE_DIR}/apollo-ios/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}/Managers/Networking/GraphQL/\"\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
+			shellScript = "RESOLVED_PACKAGE_DIR=\"${BUILD_DIR}/../../SourcePackages/checkouts\"\n\nSCRIPT_PATH=\"${RESOLVED_PACKAGE_DIR}/apollo-ios/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}/Networking/GraphQL/\"\n\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
