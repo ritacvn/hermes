@@ -68,9 +68,24 @@ self.client.searchRepositories(mentioning: phrase) { response in
   switch result {
   case let .success(results): print(results)
   case let .failure(error): print(error)
-  }
+}
 ```
 
 > Note: By default this completion handler needs to be [re-entrant safe](https://en.wikipedia.org/wiki/Reentrancy_(computing)) - it can be invoked 1-2 times for the same query as it will first return cache data (if available) and the server's response.
 
 This method itentionally uses a completion handler in order to give you freedom to handle asynchronous programming - async/await, **Combine**, **RxSwift**, or other UIKit methods are left to you to choose.
+
+### Testing Helpers
+
+There are a few testing helpers to get started with writing unit tests.
+
+To create individual node results, use `SearchQueryNode.makeRepository(name:owner:stargazersCount:)` factory method.
+
+If you need to create a bunch of edge nodes - use the free function `makeEdges(count:_:)`.
+
+In your unit tests, you can instantiate a `MockGraphQLClient` and pass it to the `ViewModel` as such:
+
+```swift
+let mockedResponse: SearchRepositoriesQuery.Data = // ...
+let viewModel = ViewModel(client: MockGraphQLClient<SearchRepositoriesQuery>(response: mockedResponse))
+```

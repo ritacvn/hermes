@@ -14,8 +14,13 @@ class GithubGraphQLTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      let mockedResponse = SearchRepositoriesQuery.Data(search: .init(
+        pageInfo: .init(startCursor: "startCursor", endCursor: nil, hasNextPage: false, hasPreviousPage: false),
+        edges: makeEdges(count: 3)
+      ))
+      let viewModel = ViewModel(client: MockGraphQLClient<SearchRepositoriesQuery>(response: mockedResponse))
+
+      /* add assertions to validate view model state after making requests */
     }
 
     func testPerformanceExample() {

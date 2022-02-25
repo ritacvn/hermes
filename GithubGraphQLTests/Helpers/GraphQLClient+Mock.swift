@@ -7,11 +7,11 @@ enum MockGraphQLError: Error {
 }
 
 struct MockGraphQLClient<Query: GraphQLQuery> {
-  private typealias ExpectedType = Query
+  typealias ExpectedType = Query
 
   private let mockedResponse: ExpectedType.Data
 
-  init(response: Query.Data) {
+  init(response: ExpectedType.Data) {
     self.mockedResponse = response
   }
 }
