@@ -14,6 +14,8 @@ Please explain in a README file the choices you made to complete the code challe
 
 ## Setup
 
+Fork this project and clone it to your local machine.
+
 After opening Xcode, you should see it resolving dependencies.
 
 You will need a [Personal Access Token for GitHub]((https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)) to run the project. Update the variable `kGitHubBearerToken` in the **Networking/ApolloClient.swift**.
