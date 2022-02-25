@@ -1,13 +1,5 @@
-//
-//  GithubGraphQLTests.swift
-//  GithubGraphQLTests
-//
-//  Created by Tony Dam on 10/8/18.
-//  Copyright © 2018 test. All rights reserved.
-//
-
-import XCTest
 @testable import GithubGraphQL
+import XCTest
 
 class GithubGraphQLTests: XCTestCase {
 
@@ -22,8 +14,13 @@ class GithubGraphQLTests: XCTestCase {
     }
 
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      let mockedResponse = SearchRepositoriesQuery.Data(search: .init(
+        pageInfo: .init(startCursor: "startCursor", endCursor: nil, hasNextPage: false, hasPreviousPage: false),
+        edges: makeEdges(count: 3)
+      ))
+      let viewModel = ViewModel(client: MockGraphQLClient<SearchRepositoriesQuery>(response: mockedResponse))
+
+      /* add assertions to validate view model state after making requests */
     }
 
     func testPerformanceExample() {
