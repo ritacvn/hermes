@@ -16,12 +16,12 @@ Please explain in a README file the choices you made to complete the code challe
 
 Fork this project and clone it to your local machine.
 
-After opening Xcode, you should see it resolving dependencies.
+Dependencies are managed with [Swift Package Manager](https://developer.apple.com/documentation/swift_packages). After opening Xcode, you should see it resolving dependencies.
 
 You will need a [Personal Access Token for GitHub]((https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/)) to run the project. Update the variable `kGitHubBearerToken` in the **Networking/ApolloClient.swift**.
 
 ### Dependencies
-You are allowed to use 3rd party libraries as dependencies, but you should explain somewhere what they solve and why you selected the specific library you did.
+You are allowed to use 3rd party libraries as dependencies, but you should explain somewhere what problem(s) they solve and why you selected the specific library you did.
 
 Any new dependencies should also be managed by SwiftPM.
 
@@ -44,15 +44,13 @@ If you have time, go above and beyond to show us your skills further by adding u
 ## What's Provided
 This project has already provided the networking code that uses the [Apollo iOS client](https://github.com/apollographql/apollo-ios) to fetch data from the GitHub GraphQL API.
 
-Dependencies are managed with [Swift Package Manager](https://developer.apple.com/documentation/swift_packages).
-
 There are two conformances to the `GraphQLClient` protocol: `ApolloClient` and `MockGraphQLClient`.
 
 `ApolloClient` is the type provided by **Apollo-iOS** and is to be used at runtime. There is the static `shared` extension for getting a ready-made instance.
 
 `MockGraphQLClient` is a client for returning mocked data in unit tests.
 
-All `GraphQLClient` conforms have the following method for searching repositories:
+All `GraphQLClient` conformances have the following method for searching repositories:
 
 ```swift
 @discardableResult
@@ -65,7 +63,7 @@ func searchRepositories(
   resultHandler: @escaping (Result<RepositorySearchResult, Error>) -> Void
 ) -> Cancellable {
 
-// example usage
+// example of basic usage
 self.client.searchRepositories(mentioning: phrase) { response in
   switch result {
   case let .success(results): print(results)
@@ -75,13 +73,13 @@ self.client.searchRepositories(mentioning: phrase) { response in
 
 > Note: By default this completion handler needs to be [re-entrant safe](https://en.wikipedia.org/wiki/Reentrancy_(computing)) - it can be invoked 1-2 times for the same query as it will first return cache data (if available) and the server's response.
 
-This method itentionally uses a completion handler in order to give you freedom to handle asynchronous programming - async/await, **Combine**, **RxSwift**, or other UIKit methods are left to you to choose.
+This method itentionally uses a completion handler in order to give you freedom to handle asynchronous programming however you see fit - async/await, **Combine**, **RxSwift**, or other **UIKit** patterns.
 
 ### Testing Helpers
 
 There are a few testing helpers to get started with writing unit tests.
 
-To create individual node results, use `SearchQueryNode.makeRepository(name:owner:stargazersCount:)` factory method.
+To create individual node results, use the `SearchQueryNode.makeRepository(name:owner:stargazersCount:)` factory method.
 
 If you need to create a bunch of edge nodes - use the free function `makeEdges(count:_:)`.
 
