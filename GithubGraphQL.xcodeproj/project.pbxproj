@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1461128E27ED09A800830945 /* RepositoryGitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461128D27ED09A800830945 /* RepositoryGitViewController.swift */; };
 		14B3965127EA7ACF00DA000F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3965027EA7ACF00DA000F /* Repository.swift */; };
 		14B3965827EA7CFA00DA000F /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3965727EA7CFA00DA000F /* RepositoryTableViewCell.swift */; };
 		14B3966727EB543200DA000F /* GitHubQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3966627EB543200DA000F /* GitHubQueryType.swift */; };
@@ -20,7 +21,6 @@
 		D8F7605327C72F1400B1AB58 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7605227C72F1400B1AB58 /* ViewModel.swift */; };
 		D8F7605527C737E400B1AB58 /* GraphQLClient+Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F7605427C737E400B1AB58 /* GraphQLClient+Mock.swift */; };
 		D9A10FA0216C4AFD007998EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10F9F216C4AFD007998EC /* AppDelegate.swift */; };
-		D9A10FA2216C4AFD007998EC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FA1216C4AFD007998EC /* ViewController.swift */; };
 		D9A10FA7216C4AFD007998EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9A10FA6216C4AFD007998EC /* Assets.xcassets */; };
 		D9A10FB5216C4AFE007998EC /* GithubGraphQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FB4216C4AFE007998EC /* GithubGraphQLTests.swift */; };
 		D9A10FC0216C4AFE007998EC /* GithubGraphQLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A10FBF216C4AFE007998EC /* GithubGraphQLUITests.swift */; };
@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1461128D27ED09A800830945 /* RepositoryGitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryGitViewController.swift; sourceTree = "<group>"; };
 		14B3965027EA7ACF00DA000F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		14B3965727EA7CFA00DA000F /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		14B3966627EB543200DA000F /* GitHubQueryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubQueryType.swift; sourceTree = "<group>"; };
@@ -60,7 +61,6 @@
 		D8F7605427C737E400B1AB58 /* GraphQLClient+Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GraphQLClient+Mock.swift"; sourceTree = "<group>"; };
 		D9A10F9C216C4AFD007998EC /* GithubGraphQL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubGraphQL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9A10F9F216C4AFD007998EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D9A10FA1216C4AFD007998EC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D9A10FA6216C4AFD007998EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9A10FAB216C4AFD007998EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9A10FB0216C4AFE007998EC /* GithubGraphQLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GithubGraphQLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +102,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1461129927ED115900830945 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				14B3967627EB666C00DA000F /* UIImageExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		14B3964B27EA7A7500DA000F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,7 +138,7 @@
 		14B3965627EA7CDC00DA000F /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D9A10FA1216C4AFD007998EC /* ViewController.swift */,
+				1461128D27ED09A800830945 /* RepositoryGitViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -175,6 +183,7 @@
 		D9A10F9E216C4AFD007998EC /* GithubGraphQL */ = {
 			isa = PBXGroup;
 			children = (
+				1461129927ED115900830945 /* Extensions */,
 				14B3966527EB541000DA000F /* Services */,
 				14B3965627EA7CDC00DA000F /* ViewController */,
 				14B3964C27EA7A7C00DA000F /* Model */,
@@ -183,7 +192,6 @@
 				D9A10F9F216C4AFD007998EC /* AppDelegate.swift */,
 				D9A10FA6216C4AFD007998EC /* Assets.xcassets */,
 				D9A10FAB216C4AFD007998EC /* Info.plist */,
-				14B3967627EB666C00DA000F /* UIImageExtension.swift */,
 			);
 			path = GithubGraphQL;
 			sourceTree = "<group>";
@@ -390,11 +398,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F7604D27C7295500B1AB58 /* GraphQLClient+Search.swift in Sources */,
-				D9A10FA2216C4AFD007998EC /* ViewController.swift in Sources */,
 				D9A10FE8216C77CD007998EC /* GraphQLClient.swift in Sources */,
 				14B3965827EA7CFA00DA000F /* RepositoryTableViewCell.swift in Sources */,
 				D8F7605127C72B1700B1AB58 /* ApolloClient.swift in Sources */,
 				D9C8E128216DBA11002A64FC /* API.swift in Sources */,
+				1461128E27ED09A800830945 /* RepositoryGitViewController.swift in Sources */,
 				14B3966727EB543200DA000F /* GitHubQueryType.swift in Sources */,
 				D8F7604B27C724F900B1AB58 /* API+Abstractions.swift in Sources */,
 				14B3967727EB666C00DA000F /* UIImageExtension.swift in Sources */,
