@@ -11,11 +11,14 @@ import UIKit
 class RepositoryGitViewController: UIViewController {
     
     let tableView = UITableView()
+    private var fetching: Bool = false
+    private var endCursorKey: Bool = false
+    private var repos: [Repository] = []
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fetchRepositories(queryType: .initial)
         setupTableView()
         setUpNavigation()
     }
@@ -35,16 +38,21 @@ class RepositoryGitViewController: UIViewController {
         navigationItem.title = "Repos"
         self.navigationController?.navigationBar.barTintColor = .white
     }
-   
+    
+    private func fetchRepositories(queryType: GithubQueryType) {
+        
+        
+    }
 }
 
 extension RepositoryGitViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return repos.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryTableViewCell.identifier, for: indexPath) as? RepositoryTableViewCell else { return UITableViewCell() }
+        cell.set(repo: repos[indexPath.row] )
         return cell
     }
     

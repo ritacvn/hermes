@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1461128E27ED09A800830945 /* RepositoryGitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1461128D27ED09A800830945 /* RepositoryGitViewController.swift */; };
+		146112C727ED53A300830945 /* GitHubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146112C627ED53A300830945 /* GitHubService.swift */; };
 		14B3965127EA7ACF00DA000F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3965027EA7ACF00DA000F /* Repository.swift */; };
 		14B3965827EA7CFA00DA000F /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3965727EA7CFA00DA000F /* RepositoryTableViewCell.swift */; };
 		14B3966727EB543200DA000F /* GitHubQueryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B3966627EB543200DA000F /* GitHubQueryType.swift */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		1461128D27ED09A800830945 /* RepositoryGitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryGitViewController.swift; sourceTree = "<group>"; };
+		146112C627ED53A300830945 /* GitHubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubService.swift; sourceTree = "<group>"; };
 		14B3965027EA7ACF00DA000F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		14B3965727EA7CFA00DA000F /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
 		14B3966627EB543200DA000F /* GitHubQueryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubQueryType.swift; sourceTree = "<group>"; };
@@ -110,6 +112,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		146112B727ED4D0F00830945 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		14B3964B27EA7A7500DA000F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				14B3966627EB543200DA000F /* GitHubQueryType.swift */,
+				146112C627ED53A300830945 /* GitHubService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -218,6 +228,7 @@
 		D9A10FCE216C4E71007998EC /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				146112B727ED4D0F00830945 /* Repository */,
 				D8F7605027C72B1700B1AB58 /* ApolloClient.swift */,
 				D9A10FE2216C77CD007998EC /* GraphQLClient.swift */,
 				D8F7604C27C7295500B1AB58 /* GraphQLClient+Search.swift */,
@@ -398,6 +409,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8F7604D27C7295500B1AB58 /* GraphQLClient+Search.swift in Sources */,
+				146112C727ED53A300830945 /* GitHubService.swift in Sources */,
 				D9A10FE8216C77CD007998EC /* GraphQLClient.swift in Sources */,
 				14B3965827EA7CFA00DA000F /* RepositoryTableViewCell.swift in Sources */,
 				D8F7605127C72B1700B1AB58 /* ApolloClient.swift in Sources */,
